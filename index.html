@@ -1,96 +1,307 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script defer src="/_vercel/insights/script.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css"
-    />
-    <title>Vercel HTML Starter</title>
-    <meta
-      name="description"
-      content="High-performance HTML based website template."
-    />
-  </head>
-  <body>
-    <h1>Vercel HTML Starter</h1>
-    <p>
-      This template is a simple, but powerful single
-      <code>index.html</code> file deployed to
-      <a href="https://vercel.com">Vercel</a>. When your site is deployed, all
-      static assets (like HTML, JavaScript, CSS, images, and more) are deployed
-      globally to every
-      <a href="https://vercel.com/docs/concepts/edge-network/overview"
-        >Vercel Edge Network</a
-      >
-      region.
-    </p>
-    <h2>Simple, privacy-friendly analytics</h2>
-    <p>
-      Want to understand your visitor traffic? Vercel Analytics gives you
-      first-party, privacy-friendly traffic analytics for your HTML site. This
-      template is already configured using the following script:
-    </p>
-    <pre><code>&lt;script defer src="/_vercel/insights/script.js"&gt;&lt;/script&gt;</code></pre>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/analytics">Vercel Analytics</a>.
-    </p>
-    <h2>Integrated with git</h2>
-    <p>
-      Deploying updates to your site is as simple as
-      <code>git push</code> thanks to Vercel's advanced
-      <a href="https://vercel.com/docs/concepts/git">Git Integration</a>.
-      Support for GitHub, GitLab, Bitbucket is zero-configuration, and with the
-      flexible Vercel CLI and API, you can integrate with any tool possible.
-    </p>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/docs/concepts/git">Git Integration</a>.
-    </p>
-    <h2>Fast <code>gzip</code> compression</h2>
-    <p>
-      To help ensure the smallest possible file sizes for your static assets,
-      the Vercel Edge Network compresses files by default using
-      <code>gzip</code>. You can also optionally use
-      <code>brotli</code> compressesion if you prefer.
-    </p>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/docs/concepts/edge-network/compression"
-        >compression</a
-      >.
-    </p>
-    <h2>Advanced routing configuration</h2>
-    <p>
-      Vercel gives you a variety of ways to configure the routing of your
-      website. For example, adding redirects, rewrites, or headers to your page.
-      While you can use <code>vercel.json</code> to define these through JSON,
-      you can also express your routing configuration as code using
-      <a href="https://vercel.com/docs/concepts/functions/edge-middleware"
-        >Vercel Edge Middleware</a
-      >.
-    </p>
-    <p>
-      Middleware runs before the
-      <a href="https://vercel.com/docs/concepts/edge-network/caching"
-        >Vercel Edge Network Cache</a
-      >, so you can configure routing exactly as your application needs. For
-      example, this template uses <code>middleware.js</code> defined in the root
-      of the repository to add additional security headers to the site:
-    </p>
-    <pre><code>referrer-policy: origin-when-cross-origin
-strict-transport-security: max-age=31536000; includeSubDomains; preload
-x-content-type-options: nosniff
-x-dns-prefetch-control: on
-x-frame-options: DENY</code></pre>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/docs/concepts/functions/edge-middleware"
-        >Vercel Edge Middleware</a
-      >.
-    </p>
-  </body>
-</html>
+ <!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Reading Booster for High School</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS Config for Dark Mode -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0284c7',
+                            600: '#0369a1',
+                            700: '#075985',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..900;1,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', 'Kantumruy Pro', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-full flex flex-col transition-colors duration-300">
+
+    <!-- Custom Toast Notification (áž‡áŸ†áž“áž½ážŸáž±áŸ’áž™ Alert) -->
+    <div id="toast-notification" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 pointer-events-none transition-all duration-300">
+        <div class="bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-4 py-3 rounded-xl shadow-lg border border-slate-700/20 flex items-center gap-2.5 text-sm font-semibold">
+            <i class="fa-solid fa-circle-check text-emerald-500 text-lg"></i>
+            <span id="toast-text">áž›áž¸áž„ážáŸ’ážšáž¼ážœáž”áž¶áž“áž…áž˜áŸ’áž›áž„áž‘áž»áž€áž‡áŸ„áž‚áž‡áŸáž™!</span>
+        </div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 lg:border-b lg:border-slate-900/10 dark:border-slate-50/10 bg-white/80 dark:bg-slate-900/80 border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="bg-brand-500 text-white p-2 rounded-xl shadow-md">
+                        <i class="fa-solid fa-book-open text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-lg font-bold text-brand-600 dark:text-brand-500 leading-none">Reading Booster</h1>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">ážŸáž˜áŸ’ážšáž¶áž”áŸ‹ážŸáž·ážŸáŸ’ážŸážœáž·áž‘áŸ’áž™áž¶áž›áŸáž™</p>
+                    </div>
+                </div>
+
+                <!-- Right Side Actions -->
+                <div class="flex items-center space-x-2 sm:space-x-4">
+                    <!-- Progress Stats -->
+                    <div class="hidden md:flex items-center space-x-2 bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-full text-xs font-semibold">
+                        <span class="text-slate-500 dark:text-slate-400">ážœážŒáŸ’ážáž“áž—áž¶áž–áŸ–</span>
+                        <span id="global-progress" class="text-brand-600 dark:text-brand-500">0/10 áž”áŸ’ážšáž’áž¶áž“áž”áž‘</span>
+                    </div>
+
+                    <!-- Share Website Button -->
+                    <button id="btn-share" class="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition-all text-xs font-bold" title="áž…áž˜áŸ’áž›áž„áž›áž¸áž„ážœáŸáž”ážŸáž¶áž™">
+[6/22/2026 10:39 PM] Loeurt Sokromnea: <i class="fa-solid fa-share-nodes text-brand-500"></i>
+                        <span class="hidden sm:inline">áž…áž˜áŸ’áž›áž„áž›áž¸áž„ (Copy Link)</span>
+                    </button>
+
+                    <!-- Dark Mode Toggle -->
+                    <button id="theme-toggle" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition-all" title="áž”áŸ’ážáž¼ážšáž–ážŽáŸŒáž•áŸ’áž‘áŸƒáž€áŸ’ážšáŸ„áž™">
+                        <i id="theme-toggle-dark-icon" class="hidden fa-solid fa-moon"></i>
+                        <i id="theme-toggle-light-icon" class="hidden fa-solid fa-sun"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col lg:flex-row gap-8">
+        
+        <!-- Sidebar: Topics List -->
+        <aside class="w-full lg:w-80 shrink-0">
+            <div class="bg-white dark:bg-slate-800 rounded-2xl p-4 shadow-sm border border-slate-100 dark:border-slate-700/50 sticky top-24">
+                <div class="flex items-center justify-between mb-4 pb-2 border-b border-slate-100 dark:border-slate-700">
+                    <h2 class="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                        <i class="fa-solid fa-list text-brand-500"></i>
+                        áž˜áŸážšáŸ€áž“áž¢áž¶áž“áž‘áž¶áŸ†áž„ áŸ¡áŸ 
+                    </h2>
+                    <span class="text-xs bg-brand-50 dark:bg-brand-500/10 text-brand-600 dark:text-brand-400 font-semibold px-2 py-1 rounded">áž€áž˜áŸ’ážšáž·ážáž˜áž’áŸ’áž™áž˜</span>
+                </div>
+                
+                <!-- Topic Navigation Links -->
+                <nav class="space-y-1.5 max-h-[60vh] overflow-y-auto pr-1" id="topics-menu">
+                    <!-- Dynamic Loading JS will insert topics here -->
+                </nav>
+
+                <!-- Help Box -->
+                <div class="mt-6 p-4 bg-gradient-to-br from-brand-50 to-sky-100/50 dark:from-slate-700/50 dark:to-slate-700/20 rounded-xl border border-brand-100/30">
+                    <h3 class="text-xs font-bold text-brand-700 dark:text-brand-400 flex items-center gap-1.5 mb-1">
+                        <i class="fa-solid fa-circle-info"></i>
+                        ážšáž”áŸ€áž”ážšáŸ€áž“áž±áŸ’áž™áž˜áž¶áž“áž”áŸ’ážšážŸáž·áž‘áŸ’áž’áž—áž¶áž–
+                    </h3>
+                    <p class="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed">
+                        áŸ¡. áž…áž»áž…ážŸáŸ’ážáž¶áž”áŸ‹áž€áž¶ážšáž”áž‰áŸ’áž…áŸáž‰ážŸáŸ†áž¡áŸáž„<br>
+                        áŸ¢. áž€ážáŸ‹ážáŸ’ážšáž¶ážœáž¶áž€áŸ’áž™ážŸáž–áŸ’áž‘ážáŸ’áž˜áž¸áŸ— áž“áž·áž„áž¢áž¶áž“áž¢ážáŸ’ážáž”áž‘áž¡áž¾áž„ážœáž·áž‰<br>
+                        áŸ£. áž’áŸ’ážœáž¾áž›áŸ†áž áž¶ážáŸ‹ážŸáŸ†ážŽáž½ážšážŠáž¾áž˜áŸ’áž”áž¸ážœáž¶ážŸáŸ‹áž€áž¶ážšáž™áž›áŸ‹ážŠáž¹áž„áŸ”
+                    </p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Topic Content Section -->
+        <section class="flex-1 min-w-0">
+            <!-- Active Topic View -->
+            <div id="active-topic-container" class="bg-white dark:bg-slate-800 rounded-2xl p-6 md:p-8 shadow-sm border border-slate-100 dark:border-slate-700/50 transition-all duration-300">
+                <!-- Header with Title, Topic Number & Audio Player -->
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-100 dark:border-slate-700">
+                    <div>
+                        <div class="flex items-center gap-2 mb-1.5">
+                            <span id="topic-badge" class="px-2.5 py-1 text-xs font-bold bg-brand-100 dark:bg-brand-500/20 text-brand-700 dark:text-brand-300 rounded-full">Topic 1</span>
+[6/22/2026 10:39 PM] Loeurt Sokromnea: <span id="topic-word-count" class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1">
+                                <i class="fa-solid fa-file-lines"></i> 150 words
+                            </span>
+                        </div>
+                        <h2 id="topic-title-en" class="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white leading-tight"></h2>
+                        <h3 id="topic-title-kh" class="text-md text-slate-500 dark:text-slate-400 mt-1 font-medium"></h3>
+                    </div>
+
+                    <!-- Audio Feature -->
+                    <div class="flex items-center gap-2 self-start md:self-center">
+                        <button id="btn-audio" class="flex items-center gap-2 px-4 py-2.5 bg-brand-500 hover:bg-brand-600 text-white font-semibold rounded-xl shadow-sm transition-all text-sm">
+                            <i id="audio-icon" class="fa-solid fa-volume-high"></i>
+                            <span id="audio-text">ážŸáŸ’ážáž¶áž”áŸ‹áž€áž¶ážšáž¢áž¶áž“</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Reading Text Box -->
+                <div class="my-6">
+                    <h4 class="text-xs uppercase tracking-wider font-bold text-slate-400 mb-3 flex items-center gap-1.5">
+                        <i class="fa-solid fa-paragraph"></i> Reading Passage (áž¢ážáŸ’ážáž”áž‘áž¢áž¶áž“)
+                    </h4>
+                    <div id="reading-text" class="text-base md:text-lg text-slate-700 dark:text-slate-200 leading-relaxed font-normal bg-slate-50 dark:bg-slate-900/50 p-5 md:p-6 rounded-2xl border border-slate-100 dark:border-slate-700">
+                        <!-- Passage text injected here -->
+                    </div>
+                </div>
+
+                <!-- Vocabulary Table -->
+                <div class="my-8">
+                    <h4 class="text-xs uppercase tracking-wider font-bold text-slate-400 mb-3 flex items-center gap-1.5">
+                        <i class="fa-solid fa-spell-check"></i> Key Vocabulary (ážœáž¶áž€áŸ’áž™ážŸáž–áŸ’áž‘ážŸáŸ†ážáž¶áž“áŸ‹áŸ—)
+                    </h4>
+                    <div class="overflow-x-auto rounded-xl border border-slate-100 dark:border-slate-700">
+                        <table class="w-full text-sm text-left">
+                            <thead class="bg-slate-50 dark:bg-slate-900 text-slate-500 dark:text-slate-400 border-b border-slate-100 dark:border-slate-700">
+                                <tr>
+                                    <th class="px-4 py-3 font-semibold">Word (áž–áž¶áž€áŸ’áž™)</th>
+                                    <th class="px-4 py-3 font-semibold">Type (ážáŸ’áž“áž¶áž€áŸ‹áž–áž¶áž€áŸ’áž™)</th>
+                                    <th class="px-4 py-3 font-semibold">Translation (áž”áŸ’ážšáŸ‚ážŸáž˜áŸ’ážšáž½áž›)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="vocab-table-body" class="divide-y divide-slate-100 dark:divide-slate-700">
+                                <!-- Vocab data dynamically added -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Quiz Section -->
+                <div class="mt-8 pt-8 border-t border-slate-100 dark:border-slate-700">
+                    <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-1 flex items-center gap-2">
+                        <i class="fa-solid fa-circle-question text-brand-500"></i>
+                        Comprehension Quiz (ážŸáŸ†ážŽáž½ážšážŸáŸ’ážœáŸ‚áž„áž™áž›áŸ‹)
+                    </h4>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mb-6">áž‡áŸ’ážšáž¾ážŸážšáž¾ážŸáž…áž˜áŸ’áž›áž¾áž™ážáŸ’ážšáž¹áž˜ážáŸ’ážšáž¼ážœáž”áŸ†áž•áž»ážážŠáž¾áž˜áŸ’áž”áž¸áž”áž‰áŸ’áž…áž”áŸ‹áž˜áŸážšáŸ€áž“áž“áŸáŸ‡áŸ”</p>
+[6/22/2026 10:39 PM] Loeurt Sokromnea: <div id="quiz-container" class="space-y-6">
+                        <!-- Questions injected here dynamically -->
+                    </div>
+
+                    <!-- Progress/Submit Action -->
+                    <div class="mt-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-slate-100 dark:border-slate-700">
+                        <div class="flex items-center gap-2">
+                            <span class="text-sm font-semibold text-slate-600 dark:text-slate-400">áž›áž‘áŸ’áž’áž•áž›áŸ–</span>
+                            <span id="quiz-status-badge" class="text-xs font-bold px-2.5 py-1 rounded bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400">áž˜áž·áž“áž‘áž¶áž“áŸ‹áž”áž¶áž“áž†áŸ’áž›áž¾áž™</span>
+                        </div>
+                        <div class="flex gap-2">
+                            <button id="btn-reset-quiz" class="px-4 py-2 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-all">
+                                áž’áŸ’ážœáž¾áž¡áž¾áž„ážœáž·áž‰
+                            </button>
+                            <button id="btn-next-topic" class="px-5 py-2 text-xs font-bold bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 hover:bg-slate-800 dark:hover:bg-white rounded-lg transition-all flex items-center gap-1">
+                                áž‘áŸ…áž˜áŸážšáŸ€áž“áž”áž“áŸ’áž‘áž¶áž”áŸ‹ <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800/80 mt-auto py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-slate-500 dark:text-slate-400">
+            <p class="text-sm">Â© 2026 Reading Booster ážŸáž˜áŸ’ážšáž¶áž”áŸ‹ážŸáž·ážŸáŸ’ážŸáž¶áž“áž»ážŸáž·ážŸáŸ’ážŸážœáž·áž‘áŸ’áž™áž¶áž›áŸáž™áŸ” ážšáž€áŸ’ážŸáž¶ážŸáž·áž‘áŸ’áž’áž·áž‚áŸ’ážšáž”áŸ‹áž™áŸ‰áž¶áž„áŸ”</p>
+            <p class="text-xs mt-1.5 text-slate-400">áž”áž„áŸ’áž€áž¾ážáž¡áž¾áž„áž€áŸ’áž“áž»áž„áž‚áŸ„áž›áž”áŸ†ážŽáž„áž›áž¾áž€áž€áž˜áŸ’áž–ážŸáŸ‹áž€áž¶ážšážŸáž·áž€áŸ’ážŸáž¶áž—áž¶ážŸáž¶áž¢áž„áŸ‹áž‚áŸ’áž›áŸážŸáž“áŸ…áž€áž˜áŸ’áž–áž»áž‡áž¶áŸ”</p>
+        </div>
+    </footer>
+
+    <!-- Javascript - Database and App Controllers -->
+    <script>
+        // Topics Data Base (10 High school topics)
+        const topicsData = [
+            {
+                id: 1,
+                titleEn: "The Power of Reading",
+                titleKh: "ážáž¶áž˜áž–áž›áž“áŸƒáž€áž¶ážšáž¢áž¶áž“",
+                wordCount: 154,
+                passage: "Reading is one of the best habits a person can develop. It opens up new worlds of knowledge and imagination. When you read books, you learn about different cultures, historical events, and modern science. Reading also improves your vocabulary and writing skills because you see how words are used in sentences. It exercises your brain, keeping it active and healthy. Even reading for just fifteen minutes a day can make a big difference in how much you know. Whether it is a storybook, a newspaper, or an educational article, reading helps you grow smarter and more creative. It is a lifelong journey of learning that never ends. So, pick up a book today and start exploring!",
+                vocab: [
+                    { word: "Habit", type: "noun", trans: "áž‘áž˜áŸ’áž›áž¶áž”áŸ‹" },
+                    { word: "Knowledge", type: "noun", trans: "áž…áŸ†ážŽáŸáŸ‡ážŠáž¹áž„" },
+                    { word: "Improve", type: "verb", trans: "áž¢áž—áž·ážœážŒáŸ’áž / áž’áŸ’ážœáž¾áž±áŸ’áž™áž”áŸ’ážšážŸáž¾ážšáž¡áž¾áž„" },
+[6/22/2026 10:39 PM] Loeurt Sokromnea: { word: "Vocabulary", type: "noun", trans: "ážœáž¶áž€áŸ’áž™ážŸáž–áŸ’áž‘" },
+                    { word: "Creative", type: "adjective", trans: "ážŠáŸ‚áž›áž˜áž¶áž“áž‚áŸ†áž“áž·ážáž…áŸ’áž“áŸƒáž”áŸ’ážšážŒáž·áž" }
+                ],
+                quiz: [
+                    {
+                        question: "According to the text, what can reading improve?",
+                        options: [
+                            "Only your sleeping habits",
+                            "Your vocabulary and writing skills",
+                            "Your physical strength",
+                            "Your driving skills"
+                        ],
+                        correct: 1
+                    },
+                    {
+                        question: "How long is suggested to read daily to make a big difference?",
+                        options: [
+                            "At least 5 hours",
+                            "Fifteen minutes",
+                            "Only one minute",
+                            "Two hours"
+                        ],
+                        correct: 1
+                    },
+                    {
+                        question: "Reading is described as a lifelong journey of what?",
+                        options: [
+                            "Traveling",
+                            "Working",
+                            "Learning",
+                            "Exercising"
+                        ],
+                        correct: 2
+                    }
+                ]
+            },
+            {
+                id: 2,
+                titleEn: "The Importance of Water",
+                titleKh: "ážŸáž¶ážšáŸˆážŸáŸ†ážáž¶áž“áŸ‹áž“áŸƒáž‘áž¹áž€",
+                wordCount: 162,
+                passage: "Water is essential for all life on Earth. Every living thing, from tiny plants to giant blue whales, needs water to survive. Our bodies are made of about sixty percent water. It helps digest our food, carry nutrients, and control body temperature. Doctors recommend drinking about eight glasses of water every day to stay healthy. Dehydration, which happens when your body does not have enough water, can make you feel tired and get headaches. Water is also very important for growing crops and generating clean electricity. However, clean water is a limited resource in many parts of the world. Therefore, we must protect our water sources and avoid wasting water. Saving water today ensures we have enough for tomorrow.",
+                vocab: [
+                    { word: "Essential", type: "adjective", trans: "ážŠáŸ‚áž›ážŸáŸ†ážáž¶áž“áŸ‹áž”áŸ†áž•áž»áž / áž…áž¶áŸ†áž”áž¶áž…áŸ‹" },
+                    { word: "Survive", type: "verb", trans: "ážšážŸáŸ‹ážšáž¶áž“áž˜áž¶áž“áž‡áž¸ážœáž·áž" },
+                    { word: "Digest", type: "verb", trans: "ážšáŸ†áž›áž¶áž™áž¢áž¶áž áž¶ážš" },
+                    { word: "Dehydration", type: "noun", trans: "áž€áž¶ážšážáŸ’ážŸáŸ„áŸ‡áž‡áž¶ážáž·áž‘áž¹áž€" },
+                    { word: "Resource", type: "noun", trans: "áž’áž“áž’áž¶áž“" }
+                ],
+                quiz: [
+                    {
+                        question: "How much of the human body is made of water?",
+                        options: [
+                            "About twenty percent",
+                            "About sixty percent",
+                            "About ninety percent",
+                            "About forty percent"
+                        ],
+                        correct: 1
+                    },
+                    {
+                        question: "What is dehydration?",
+                        options: [
+                            "Drinking too much water",
+                            "When the body lacks enough water",
+                            "Water that contains salt",
+[6/22/2026 10:39 PM] Loeurt Sokromnea: "A type of fresh fruit juice"
+                        ],
+                        correct: 1
+                    },
+                    {
+                        question: "Why should we protect water sources?",
+                        options: [
+                            "Because clean water is a limited resource",
+                            "Because water is cheap",
+                            "Beca
